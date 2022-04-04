@@ -9,7 +9,7 @@ import System.Directory
 import System.FilePath
 import Data.Foldable (forM_)
 
-import Distribution.Simple.Compiler hiding (Flag)
+import Distribution.Simple.Compiler
 import Distribution.Package --must not specify imports, since we're exporting moule.
 import Distribution.PackageDescription
 import Distribution.PackageDescription.Parsec
@@ -96,7 +96,7 @@ main = do
       (defaultConfigFlags defaultProgramDb)
     configFlags =
       defaultFlags
-        { configPackageDBs = map (Just . SpecificPackageDB) shPkgDbArgs
+        { configPackageDBs = map (Just . Distribution.Simple.Compiler.SpecificPackageDB) shPkgDbArgs
         , configVerbosity = Setup.Flag shVerbosity
         , configDistPref = maybe (configDistPref defaultFlags) Setup.Flag shDistDir
         , configHcPath = maybe (configHcPath defaultFlags) Setup.Flag shCompiler
