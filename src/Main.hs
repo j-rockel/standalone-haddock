@@ -123,5 +123,5 @@ main = do
     | pkg <- pkgNames
     , let pkgStr = display pkg
           html = pkgStr
-          iface = shDest </> pkgStr </> pkgStr <.> "haddock"
+          iface = shDest </> "doc/html" </> pkgStr </> pkgStr <.> "haddock"
     ]
