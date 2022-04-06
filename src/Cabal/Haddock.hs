@@ -358,8 +358,7 @@ fromPackageDescription :: HaddockTarget -> PackageDescription -> HaddockArgs
 fromPackageDescription haddockTarget pkg_descr = mempty
     { argInterfaceFile = Flag $ haddockName pkg_descr
     , argPackageName = Flag $ packageId $ pkg_descr
-    , argOutputDir = Dir $
-        "doc" </> "html" </> haddockDirName haddockTarget pkg_descr
+    , argOutputDir = Dir $ haddockDirName haddockTarget pkg_descr
     , argPrologue = Flag $ ShortText.fromShortText $
         if ShortText.null desc
         then synopsis pkg_descr
