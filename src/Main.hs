@@ -12,7 +12,6 @@ import Data.Foldable (forM_)
 import Distribution.Simple.Compiler
 import Distribution.Package --must not specify imports, since we're exporting moule.
 import Distribution.PackageDescription
-import Distribution.PackageDescription.Parsec
 import Distribution.Simple.LocalBuildInfo (withPrograms)
 import Distribution.Simple.Program
 import Distribution.Simple.Setup
@@ -20,6 +19,7 @@ import qualified Distribution.Simple.Setup as Setup
 import Distribution.Simple.Utils hiding (info)
 import Distribution.Verbosity
 import Distribution.Text
+import Distribution.Simple.PackageDescription (readGenericPackageDescription)
 
 data SHFlags = SHFlags
     { shPkgDbArgs       :: [String]

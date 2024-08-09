@@ -45,7 +45,7 @@ import Prelude ()
 import System.FilePath    (normalise, splitDrive)
 #endif
 
-import Distribution.PackageDescription.Parsec
+import Distribution.Simple.PackageDescription (readGenericPackageDescription)
 
 configureAction :: UserHooks -> ConfigFlags -> Args -> IO LocalBuildInfo
 configureAction hooks flags args = do
